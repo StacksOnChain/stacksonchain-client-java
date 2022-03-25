@@ -29,7 +29,7 @@ import java.util.Map;
  * Dataset
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-14T18:28:17.532064250-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
 public class Dataset {
   @SerializedName("columns")
   private Map<String, List<Object>> columns = null;

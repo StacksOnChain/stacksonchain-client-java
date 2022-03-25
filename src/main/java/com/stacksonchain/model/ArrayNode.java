@@ -14,40 +14,12 @@ package com.stacksonchain.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
- * BlockSpec
+ * ArrayNode
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class BlockSpec {
-  @SerializedName("maxBlockHeight")
-  private Long maxBlockHeight = null;
-
-  public BlockSpec maxBlockHeight(Long maxBlockHeight) {
-    this.maxBlockHeight = maxBlockHeight;
-    return this;
-  }
-
-   /**
-   * Get maxBlockHeight
-   * @return maxBlockHeight
-  **/
-  @Schema(description = "")
-  public Long getMaxBlockHeight() {
-    return maxBlockHeight;
-  }
-
-  public void setMaxBlockHeight(Long maxBlockHeight) {
-    this.maxBlockHeight = maxBlockHeight;
-  }
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-16T01:03:17.052189010-07:00[America/Los_Angeles]")
+public class ArrayNode {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -57,22 +29,20 @@ public class BlockSpec {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BlockSpec blockSpec = (BlockSpec) o;
-    return Objects.equals(this.maxBlockHeight, blockSpec.maxBlockHeight);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxBlockHeight);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BlockSpec {\n");
+    sb.append("class ArrayNode {\n");
     
-    sb.append("    maxBlockHeight: ").append(toIndentedString(maxBlockHeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

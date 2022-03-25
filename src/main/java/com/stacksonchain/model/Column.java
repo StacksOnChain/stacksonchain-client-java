@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * NftContract
+ * Column
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class Column {
+  @SerializedName("name")
+  private String name = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("type")
+  private String type = null;
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  public Column name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  public String getName() {
+    return name;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public Column type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  public String getType() {
+    return type;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -78,24 +78,24 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    Column column = (Column) o;
+    return Objects.equals(this.name, column.name) &&
+        Objects.equals(this.type, column.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(name, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class Column {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

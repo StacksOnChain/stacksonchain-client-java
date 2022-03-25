@@ -4,10 +4,141 @@ All URIs are relative to *https://api.stacksdata.info*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**arbitrageMia**](StacksApi.md#arbitrageMia) | **GET** /v1/mia-arb | 
+[**arbitrageNyc**](StacksApi.md#arbitrageNyc) | **GET** /v1/nyc-arb | 
+[**arkadikoVaults**](StacksApi.md#arkadikoVaults) | **GET** /v1/owner/{address}/arkadiko-vaults | 
 [**block**](StacksApi.md#block) | **GET** /v1/block | 
+[**coins**](StacksApi.md#coins) | **GET** /v1/coins | 
+[**deserialize**](StacksApi.md#deserialize) | **GET** /v1/deserialize/{value} | 
 [**price**](StacksApi.md#price) | **GET** /v1/price | 
 [**run**](StacksApi.md#run) | **POST** /v1/run | 
 [**ts**](StacksApi.md#ts) | **POST** /v1/ts | 
+
+<a name="arbitrageMia"></a>
+# **arbitrageMia**
+> List&lt;Arbitrage&gt; arbitrageMia()
+
+
+
+MIA citycoin mining arbitrage.
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.controllers.StacksApi;
+
+
+StacksApi apiInstance = new StacksApi();
+try {
+    List<Arbitrage> result = apiInstance.arbitrageMia();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StacksApi#arbitrageMia");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Arbitrage&gt;**](Arbitrage.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="arbitrageNyc"></a>
+# **arbitrageNyc**
+> List&lt;Arbitrage&gt; arbitrageNyc()
+
+
+
+NYC citycoin mining arbitrage.
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.controllers.StacksApi;
+
+
+StacksApi apiInstance = new StacksApi();
+try {
+    List<Arbitrage> result = apiInstance.arbitrageNyc();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StacksApi#arbitrageNyc");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Arbitrage&gt;**](Arbitrage.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="arkadikoVaults"></a>
+# **arkadikoVaults**
+> arkadikoVaults(address)
+
+
+
+Deserialize serialized Clarity values
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.controllers.StacksApi;
+
+
+StacksApi apiInstance = new StacksApi();
+String address = "address_example"; // String | 
+try {
+    apiInstance.arkadikoVaults(address);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StacksApi#arkadikoVaults");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="block"></a>
 # **block**
@@ -40,6 +171,91 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**BlockSpec**](BlockSpec.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="coins"></a>
+# **coins**
+> List&lt;CoinInfo&gt; coins()
+
+
+
+Coin contracts holders and supply.
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.controllers.StacksApi;
+
+
+StacksApi apiInstance = new StacksApi();
+try {
+    List<CoinInfo> result = apiInstance.coins();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StacksApi#coins");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;CoinInfo&gt;**](CoinInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="deserialize"></a>
+# **deserialize**
+> deserialize(value)
+
+
+
+Deserialize serialized Clarity values
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.controllers.StacksApi;
+
+
+StacksApi apiInstance = new StacksApi();
+String value = "value_example"; // String | 
+try {
+    apiInstance.deserialize(value);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StacksApi#deserialize");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

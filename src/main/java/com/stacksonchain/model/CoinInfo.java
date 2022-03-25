@@ -21,52 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.math.BigDecimal;
 /**
- * NftContract
+ * CoinInfo
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class CoinInfo {
+  @SerializedName("contract")
+  private String contract = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("holders")
+  private BigDecimal holders = null;
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  @SerializedName("supply")
+  private String supply = null;
+
+  public CoinInfo contract(String contract) {
+    this.contract = contract;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get contract
+   * @return contract
   **/
   @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  public String getContract() {
+    return contract;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setContract(String contract) {
+    this.contract = contract;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public CoinInfo holders(BigDecimal holders) {
+    this.holders = holders;
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get holders
+   * @return holders
   **/
   @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  public BigDecimal getHolders() {
+    return holders;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setHolders(BigDecimal holders) {
+    this.holders = holders;
+  }
+
+  public CoinInfo supply(String supply) {
+    this.supply = supply;
+    return this;
+  }
+
+   /**
+   * Get supply
+   * @return supply
+  **/
+  @Schema(description = "")
+  public String getSupply() {
+    return supply;
+  }
+
+  public void setSupply(String supply) {
+    this.supply = supply;
   }
 
 
@@ -78,24 +100,26 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    CoinInfo coinInfo = (CoinInfo) o;
+    return Objects.equals(this.contract, coinInfo.contract) &&
+        Objects.equals(this.holders, coinInfo.holders) &&
+        Objects.equals(this.supply, coinInfo.supply);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(contract, holders, supply);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class CoinInfo {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
+    sb.append("    holders: ").append(toIndentedString(holders)).append("\n");
+    sb.append("    supply: ").append(toIndentedString(supply)).append("\n");
     sb.append("}");
     return sb.toString();
   }

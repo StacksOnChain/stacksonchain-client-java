@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * NftContract
+ * Arbitrage
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class Arbitrage {
+  @SerializedName("blockHeight")
+  private Integer blockHeight = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("arbitrage")
+  private Double arbitrage = null;
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  public Arbitrage blockHeight(Integer blockHeight) {
+    this.blockHeight = blockHeight;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get blockHeight
+   * @return blockHeight
   **/
   @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  public Integer getBlockHeight() {
+    return blockHeight;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setBlockHeight(Integer blockHeight) {
+    this.blockHeight = blockHeight;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public Arbitrage arbitrage(Double arbitrage) {
+    this.arbitrage = arbitrage;
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get arbitrage
+   * @return arbitrage
   **/
   @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  public Double getArbitrage() {
+    return arbitrage;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setArbitrage(Double arbitrage) {
+    this.arbitrage = arbitrage;
   }
 
 
@@ -78,24 +78,24 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    Arbitrage arbitrage = (Arbitrage) o;
+    return Objects.equals(this.blockHeight, arbitrage.blockHeight) &&
+        Objects.equals(this.arbitrage, arbitrage.arbitrage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(blockHeight, arbitrage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class Arbitrage {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    blockHeight: ").append(toIndentedString(blockHeight)).append("\n");
+    sb.append("    arbitrage: ").append(toIndentedString(arbitrage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

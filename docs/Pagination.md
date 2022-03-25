@@ -1,8 +1,8 @@
-# RunSqlRequest
+# Pagination
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** |  |  [optional]
-**offset** | **Long** |  |  [optional]
+**current** | **Long** |  |  [optional]
+**perPage** | **Integer** |  |  [optional]
 **next** | **String** |  |  [optional]

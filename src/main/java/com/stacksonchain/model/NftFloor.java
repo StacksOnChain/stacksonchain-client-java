@@ -21,52 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.math.BigDecimal;
 /**
- * NftContract
+ * NftFloor
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class NftFloor {
+  @SerializedName("date")
+  private String date = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("floor")
+  private BigDecimal floor = null;
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  public NftFloor date(String date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get date
+   * @return date
   **/
   @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  public String getDate() {
+    return date;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setDate(String date) {
+    this.date = date;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public NftFloor floor(BigDecimal floor) {
+    this.floor = floor;
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get floor
+   * @return floor
   **/
   @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  public BigDecimal getFloor() {
+    return floor;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setFloor(BigDecimal floor) {
+    this.floor = floor;
   }
 
 
@@ -78,24 +79,24 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    NftFloor nftFloor = (NftFloor) o;
+    return Objects.equals(this.date, nftFloor.date) &&
+        Objects.equals(this.floor, nftFloor.floor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(date, floor);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class NftFloor {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    floor: ").append(toIndentedString(floor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

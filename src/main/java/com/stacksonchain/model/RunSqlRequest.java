@@ -25,10 +25,16 @@ import java.io.IOException;
  * RunSqlRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-14T18:28:17.532064250-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
 public class RunSqlRequest {
   @SerializedName("query")
   private String query = null;
+
+  @SerializedName("offset")
+  private Long offset = null;
+
+  @SerializedName("next")
+  private String next = null;
 
   public RunSqlRequest query(String query) {
     this.query = query;
@@ -48,6 +54,42 @@ public class RunSqlRequest {
     this.query = query;
   }
 
+  public RunSqlRequest offset(Long offset) {
+    this.offset = offset;
+    return this;
+  }
+
+   /**
+   * Get offset
+   * @return offset
+  **/
+  @Schema(description = "")
+  public Long getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Long offset) {
+    this.offset = offset;
+  }
+
+  public RunSqlRequest next(String next) {
+    this.next = next;
+    return this;
+  }
+
+   /**
+   * Get next
+   * @return next
+  **/
+  @Schema(description = "")
+  public String getNext() {
+    return next;
+  }
+
+  public void setNext(String next) {
+    this.next = next;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -58,12 +100,14 @@ public class RunSqlRequest {
       return false;
     }
     RunSqlRequest runSqlRequest = (RunSqlRequest) o;
-    return Objects.equals(this.query, runSqlRequest.query);
+    return Objects.equals(this.query, runSqlRequest.query) &&
+        Objects.equals(this.offset, runSqlRequest.offset) &&
+        Objects.equals(this.next, runSqlRequest.next);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query);
+    return Objects.hash(query, offset, next);
   }
 
 
@@ -73,6 +117,8 @@ public class RunSqlRequest {
     sb.append("class RunSqlRequest {\n");
     
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    next: ").append(toIndentedString(next)).append("\n");
     sb.append("}");
     return sb.toString();
   }

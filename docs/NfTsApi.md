@@ -4,12 +4,71 @@ All URIs are relative to *https://api.stacksdata.info*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addressHistory**](NfTsApi.md#addressHistory) | **GET** /nft/address/{address}/history | 
 [**assets**](NfTsApi.md#assets) | **GET** /nft/assets/{recipient} | 
 [**contracts**](NfTsApi.md#contracts) | **GET** /nft/contracts | 
+[**floor**](NfTsApi.md#floor) | **GET** /nft/contracts/{contract}/floor | 
 [**owners**](NfTsApi.md#owners) | **GET** /nft/contracts/{contract}/owners | 
 [**prices**](NfTsApi.md#prices) | **GET** /nft/contracts/{contract}/price | 
+[**tokens**](NfTsApi.md#tokens) | **GET** /nft/contracts/{contract}/tokens | 
+[**totalVolumes**](NfTsApi.md#totalVolumes) | **GET** /nft/volume | 
 [**transactions**](NfTsApi.md#transactions) | **GET** /nft/contracts/{contract}/transactions | 
 [**volumes**](NfTsApi.md#volumes) | **GET** /nft/contracts/{contract}/volume | 
+
+<a name="addressHistory"></a>
+# **addressHistory**
+> List&lt;NftHistory&gt; addressHistory(address)
+
+
+
+NFT events history for a specific address
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiClient;
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
+//import com.stacksonchain.controllers.NfTsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
+
+NfTsApi apiInstance = new NfTsApi();
+String address = "address_example"; // String | 
+try {
+    List<NftHistory> result = apiInstance.addressHistory(address);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NfTsApi#addressHistory");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**|  |
+
+### Return type
+
+[**List&lt;NftHistory&gt;**](NftHistory.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="assets"></a>
 # **assets**
@@ -22,9 +81,19 @@ NFT assets with corresponding transactions by recipient.
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 String recipient = "recipient_example"; // String | 
@@ -49,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -67,9 +136,19 @@ Returns a list of all NFT contracts.
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 try {
@@ -90,7 +169,64 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="floor"></a>
+# **floor**
+> List&lt;NftFloor&gt; floor(contract, timeframe)
+
+
+
+Floor price for given contract grouped by timeframe (1h, 15m)
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiClient;
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
+//import com.stacksonchain.controllers.NfTsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
+
+NfTsApi apiInstance = new NfTsApi();
+String contract = "contract_example"; // String | 
+String timeframe = "timeframe_example"; // String | 
+try {
+    List<NftFloor> result = apiInstance.floor(contract, timeframe);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NfTsApi#floor");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**|  |
+ **timeframe** | **String**|  | [optional]
+
+### Return type
+
+[**List&lt;NftFloor&gt;**](NftFloor.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -108,9 +244,19 @@ Returns a list of all owner of given NFT contract.
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 String contract = "contract_example"; // String | 
@@ -135,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -153,9 +299,19 @@ Returns average prices per time period for given NFT contract in the last 60 day
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 String contract = "contract_example"; // String | 
@@ -182,7 +338,117 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="tokens"></a>
+# **tokens**
+> List&lt;NftToken&gt; tokens(contract)
+
+
+
+Returns a list of all tokens of given NFT contract.
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiClient;
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
+//import com.stacksonchain.controllers.NfTsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
+
+NfTsApi apiInstance = new NfTsApi();
+String contract = "contract_example"; // String | 
+try {
+    List<NftToken> result = apiInstance.tokens(contract);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NfTsApi#tokens");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**|  |
+
+### Return type
+
+[**List&lt;NftToken&gt;**](NftToken.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="totalVolumes"></a>
+# **totalVolumes**
+> List&lt;NftVolume&gt; totalVolumes(days)
+
+
+
+Returns volumes per day for all NFT contracts.
+
+### Example
+```java
+// Import classes:
+//import com.stacksonchain.ApiClient;
+//import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
+//import com.stacksonchain.controllers.NfTsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
+
+NfTsApi apiInstance = new NfTsApi();
+Integer days = 56; // Integer | 
+try {
+    List<NftVolume> result = apiInstance.totalVolumes(days);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NfTsApi#totalVolumes");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **days** | **Integer**|  | [optional]
+
+### Return type
+
+[**List&lt;NftVolume&gt;**](NftVolume.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -200,9 +466,19 @@ Returns number of transactions per day for given NFT contract.
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 String contract = "contract_example"; // String | 
@@ -227,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -245,9 +521,19 @@ Returns volumes per day for given NFT contract.
 ### Example
 ```java
 // Import classes:
+//import com.stacksonchain.ApiClient;
 //import com.stacksonchain.ApiException;
+//import com.stacksonchain.Configuration;
+//import com.stacksonchain.auth.*;
 //import com.stacksonchain.controllers.NfTsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: bearerAuth
+ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+bearerAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.setApiKeyPrefix("Token");
 
 NfTsApi apiInstance = new NfTsApi();
 String contract = "contract_example"; // String | 
@@ -272,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

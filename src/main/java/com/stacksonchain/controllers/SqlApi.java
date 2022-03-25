@@ -27,6 +27,8 @@ import java.io.IOException;
 
 
 import com.stacksonchain.model.Dataset;
+import com.stacksonchain.model.PaginationResponsePortfolioEntry;
+import com.stacksonchain.model.PaginationResponseTaxmanEntry;
 import com.stacksonchain.model.RunSqlRequest;
 
 import java.lang.reflect.Type;
@@ -54,6 +56,143 @@ public class SqlApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for runPortfolioTxHistory
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call runPortfolioTxHistoryCall(String address, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/owner/{address}/portfolio"
+            .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (next != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call runPortfolioTxHistoryValidateBeforeCall(String address, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'address' is set
+        if (address == null) {
+            throw new ApiException("Missing the required parameter 'address' when calling runPortfolioTxHistory(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = runPortfolioTxHistoryCall(address, next, limit, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * Portfolio history for owner in reverse order
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @return PaginationResponsePortfolioEntry
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PaginationResponsePortfolioEntry runPortfolioTxHistory(String address, String next, Integer limit) throws ApiException {
+        ApiResponse<PaginationResponsePortfolioEntry> resp = runPortfolioTxHistoryWithHttpInfo(address, next, limit);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Portfolio history for owner in reverse order
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @return ApiResponse&lt;PaginationResponsePortfolioEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PaginationResponsePortfolioEntry> runPortfolioTxHistoryWithHttpInfo(String address, String next, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = runPortfolioTxHistoryValidateBeforeCall(address, next, limit, null, null);
+        Type localVarReturnType = new TypeToken<PaginationResponsePortfolioEntry>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Portfolio history for owner in reverse order
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call runPortfolioTxHistoryAsync(String address, String next, Integer limit, final ApiCallback<PaginationResponsePortfolioEntry> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = runPortfolioTxHistoryValidateBeforeCall(address, next, limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PaginationResponsePortfolioEntry>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for runSql
      * @param body SQL query (optional)
@@ -291,6 +430,143 @@ public class SqlApi {
 
         com.squareup.okhttp.Call call = runSqlV2ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Dataset>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for runTxHistory
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call runTxHistoryCall(String address, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/owner/{address}/history"
+            .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (next != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call runTxHistoryValidateBeforeCall(String address, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'address' is set
+        if (address == null) {
+            throw new ApiException("Missing the required parameter 'address' when calling runTxHistory(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = runTxHistoryCall(address, next, limit, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * Transaction history for owner
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @return PaginationResponseTaxmanEntry
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PaginationResponseTaxmanEntry runTxHistory(String address, String next, Integer limit) throws ApiException {
+        ApiResponse<PaginationResponseTaxmanEntry> resp = runTxHistoryWithHttpInfo(address, next, limit);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Transaction history for owner
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @return ApiResponse&lt;PaginationResponseTaxmanEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PaginationResponseTaxmanEntry> runTxHistoryWithHttpInfo(String address, String next, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = runTxHistoryValidateBeforeCall(address, next, limit, null, null);
+        Type localVarReturnType = new TypeToken<PaginationResponseTaxmanEntry>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Transaction history for owner
+     * @param address  (required)
+     * @param next  (optional)
+     * @param limit  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call runTxHistoryAsync(String address, String next, Integer limit, final ApiCallback<PaginationResponseTaxmanEntry> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = runTxHistoryValidateBeforeCall(address, next, limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PaginationResponseTaxmanEntry>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

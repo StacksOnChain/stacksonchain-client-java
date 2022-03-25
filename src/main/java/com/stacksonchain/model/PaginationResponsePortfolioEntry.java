@@ -19,54 +19,55 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.stacksonchain.model.Pagination;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * NftContract
+ * PaginationResponsePortfolioEntry
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class PaginationResponsePortfolioEntry {
+  @SerializedName("pagination")
+  private Pagination pagination = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("records")
+  private Object records = null;
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  public PaginationResponsePortfolioEntry pagination(Pagination pagination) {
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get pagination
+   * @return pagination
   **/
   @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  public Pagination getPagination() {
+    return pagination;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public PaginationResponsePortfolioEntry records(Object records) {
+    this.records = records;
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get records
+   * @return records
   **/
   @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  public Object getRecords() {
+    return records;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setRecords(Object records) {
+    this.records = records;
   }
 
 
@@ -78,24 +79,24 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    PaginationResponsePortfolioEntry paginationResponsePortfolioEntry = (PaginationResponsePortfolioEntry) o;
+    return Objects.equals(this.pagination, paginationResponsePortfolioEntry.pagination) &&
+        Objects.equals(this.records, paginationResponsePortfolioEntry.records);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(pagination, records);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class PaginationResponsePortfolioEntry {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
     sb.append("}");
     return sb.toString();
   }

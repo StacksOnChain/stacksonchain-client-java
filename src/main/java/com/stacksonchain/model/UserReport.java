@@ -19,13 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.stacksonchain.model.TableSpec;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
  * UserReport
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-14T18:28:17.532064250-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
 public class UserReport {
   @SerializedName("name")
   private String name = null;
@@ -35,6 +36,9 @@ public class UserReport {
 
   @SerializedName("table")
   private String table = null;
+
+  @SerializedName("spec")
+  private TableSpec spec = null;
 
   public UserReport name(String name) {
     this.name = name;
@@ -90,6 +94,24 @@ public class UserReport {
     this.table = table;
   }
 
+  public UserReport spec(TableSpec spec) {
+    this.spec = spec;
+    return this;
+  }
+
+   /**
+   * Get spec
+   * @return spec
+  **/
+  @Schema(description = "")
+  public TableSpec getSpec() {
+    return spec;
+  }
+
+  public void setSpec(TableSpec spec) {
+    this.spec = spec;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,12 +124,13 @@ public class UserReport {
     UserReport userReport = (UserReport) o;
     return Objects.equals(this.name, userReport.name) &&
         Objects.equals(this.query, userReport.query) &&
-        Objects.equals(this.table, userReport.table);
+        Objects.equals(this.table, userReport.table) &&
+        Objects.equals(this.spec, userReport.spec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, query, table);
+    return Objects.hash(name, query, table, spec);
   }
 
 
@@ -119,6 +142,7 @@ public class UserReport {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
+    sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("}");
     return sb.toString();
   }

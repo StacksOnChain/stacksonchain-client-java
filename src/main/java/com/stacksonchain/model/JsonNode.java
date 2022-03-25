@@ -14,61 +14,12 @@ package com.stacksonchain.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
- * NftOwner
+ * JsonNode
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftOwner {
-  @SerializedName("owner")
-  private String owner = null;
-
-  @SerializedName("id")
-  private String id = null;
-
-  public NftOwner owner(String owner) {
-    this.owner = owner;
-    return this;
-  }
-
-   /**
-   * Get owner
-   * @return owner
-  **/
-  @Schema(description = "")
-  public String getOwner() {
-    return owner;
-  }
-
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-
-  public NftOwner id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
+public class JsonNode {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,24 +29,20 @@ public class NftOwner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftOwner nftOwner = (NftOwner) o;
-    return Objects.equals(this.owner, nftOwner.owner) &&
-        Objects.equals(this.id, nftOwner.id);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(owner, id);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftOwner {\n");
+    sb.append("class JsonNode {\n");
     
-    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

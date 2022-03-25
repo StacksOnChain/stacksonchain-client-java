@@ -19,54 +19,62 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.stacksonchain.model.Column;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * NftContract
+ * TableSpec
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
-public class NftContract {
-  @SerializedName("contractName")
-  private String contractName = null;
+public class TableSpec {
+  @SerializedName("version")
+  private Integer version = null;
 
-  @SerializedName("deploymentTime")
-  private String deploymentTime = null;
+  @SerializedName("schema")
+  private List<Column> schema = new ArrayList<Column>();
 
-  public NftContract contractName(String contractName) {
-    this.contractName = contractName;
+  public TableSpec version(Integer version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Get contractName
-   * @return contractName
+   * Get version
+   * @return version
   **/
-  @Schema(description = "")
-  public String getContractName() {
-    return contractName;
+  @Schema(required = true, description = "")
+  public Integer getVersion() {
+    return version;
   }
 
-  public void setContractName(String contractName) {
-    this.contractName = contractName;
+  public void setVersion(Integer version) {
+    this.version = version;
   }
 
-  public NftContract deploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public TableSpec schema(List<Column> schema) {
+    this.schema = schema;
+    return this;
+  }
+
+  public TableSpec addSchemaItem(Column schemaItem) {
+    this.schema.add(schemaItem);
     return this;
   }
 
    /**
-   * Get deploymentTime
-   * @return deploymentTime
+   * Get schema
+   * @return schema
   **/
-  @Schema(description = "")
-  public String getDeploymentTime() {
-    return deploymentTime;
+  @Schema(required = true, description = "")
+  public List<Column> getSchema() {
+    return schema;
   }
 
-  public void setDeploymentTime(String deploymentTime) {
-    this.deploymentTime = deploymentTime;
+  public void setSchema(List<Column> schema) {
+    this.schema = schema;
   }
 
 
@@ -78,24 +86,24 @@ public class NftContract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NftContract nftContract = (NftContract) o;
-    return Objects.equals(this.contractName, nftContract.contractName) &&
-        Objects.equals(this.deploymentTime, nftContract.deploymentTime);
+    TableSpec tableSpec = (TableSpec) o;
+    return Objects.equals(this.version, tableSpec.version) &&
+        Objects.equals(this.schema, tableSpec.schema);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractName, deploymentTime);
+    return Objects.hash(version, schema);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NftContract {\n");
+    sb.append("class TableSpec {\n");
     
-    sb.append("    contractName: ").append(toIndentedString(contractName)).append("\n");
-    sb.append("    deploymentTime: ").append(toIndentedString(deploymentTime)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("}");
     return sb.toString();
   }
