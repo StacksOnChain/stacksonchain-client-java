@@ -28,7 +28,7 @@ import java.util.List;
  * NftToken
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-25T15:36:22.741800281-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-26T14:22:33.844642602-07:00[America/Los_Angeles]")
 public class NftToken {
   @SerializedName("tokenId")
   private Integer tokenId = null;
@@ -44,6 +44,9 @@ public class NftToken {
 
   @SerializedName("attributes")
   private List<JsonNode> attributes = null;
+
+  @SerializedName("recipient")
+  private String recipient = null;
 
   public NftToken tokenId(Integer tokenId) {
     this.tokenId = tokenId;
@@ -143,6 +146,24 @@ public class NftToken {
     this.attributes = attributes;
   }
 
+  public NftToken recipient(String recipient) {
+    this.recipient = recipient;
+    return this;
+  }
+
+   /**
+   * Get recipient
+   * @return recipient
+  **/
+  @Schema(description = "")
+  public String getRecipient() {
+    return recipient;
+  }
+
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,12 +178,13 @@ public class NftToken {
         Objects.equals(this.name, nftToken.name) &&
         Objects.equals(this.description, nftToken.description) &&
         Objects.equals(this.url, nftToken.url) &&
-        Objects.equals(this.attributes, nftToken.attributes);
+        Objects.equals(this.attributes, nftToken.attributes) &&
+        Objects.equals(this.recipient, nftToken.recipient);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, name, description, url, attributes);
+    return Objects.hash(tokenId, name, description, url, attributes, recipient);
   }
 
 
@@ -176,6 +198,7 @@ public class NftToken {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
     sb.append("}");
     return sb.toString();
   }

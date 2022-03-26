@@ -8,3 +8,4 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]
 **attributes** | [**List&lt;JsonNode&gt;**](JsonNode.md) |  |  [optional]
+**recipient** | **String** |  |  [optional]
